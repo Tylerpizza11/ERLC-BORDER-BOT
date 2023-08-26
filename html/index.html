@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <title>ER:LC BOT WEBSITE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet">
+    <script type="text/javascript" src="index.js"></script>
+    <script>
+        fetch("../Database.json")
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(products){
+            let placeholder = document.querySelector("#data-output");
+            let out = "";
+            for(let product of products){
+                out += `
+                    <tr>
+                        <td><div>${product.Username}</div> <img style="border-radius: 50%;    
+    margin-top: calc(4px - 0.125rem);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    pointer-events: none;
+    z-index: 1;" src='${product.Userimg}'></td>
+    <td>${product.Content}</td>
+    <td>#${product.Channel}</td>
+    <td>${product.Time}</td>
+    </tr>
+    </tr>
+                `;
+            }
+        
+            placeholder.innerHTML = out;
+        });</script>
+        <script>fetch("../botstatus.json")
+            .then(function(response){
+                return response.json();
+            })
+            .then(json => {
+               var power = document.getElementById("power")
+               power.innerHTML = json.Status
+            })</script>
+<style>
+        html {
+            
+            color: white;
+            background-color: #292B2F;
+            font-family: 'Roboto', sans-serif;
+        }
+        th {
+            color: white;
+        }
+        td {
+            color: white;
+        }
+        h1 {
+            color: white
+        }
+        a {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>ER:LC bot</h1>
+    <div>
+        <a>Active:</a>
+        <a id="power">OFF</a>
+        <div>
+        
+
+            <table >
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Content</th>
+                        <th>Channel</th>
+                        <th>Time</th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="data-output">
+                    <!-- Prodcuts from gavascript file in here. -->
+                </tbody>
+            </table>
+    </div>
+    </div>
+</body>
+</html>
