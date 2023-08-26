@@ -12,8 +12,15 @@
   
 <p align="center">
   <a href="#overview">Overview</a>
+  •
+  <a href="#instalation">Instalation</a>
 </p>
 
 
 # Overview  
-  ER:LC Border BOt is a Discord Bot For ER:LC Discord Servers!
+  ER:LC Border BOt is a Discord Bot For ER:LC Discord Servers! You Can Self-Host this bot or Host it on anywhere else!
+  Please Give Me Credit!
+
+
+  # Instalation
+  To set up the Discord Bot you will need a discord bot Tocken. [Go Here](https://discord.com/developers/applications)
